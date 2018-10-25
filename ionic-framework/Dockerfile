@@ -67,7 +67,7 @@ RUN unzip ${ANDROID_HOME}/temp/*.zip -d ${ANDROID_HOME}
 
 # Test First Build so that it will be faster later
 RUN cd myApp && \
-    ionic cordova build android --prod --no-interactive --release
+    ionic cordova build android --aot --minifyjs --minifycss --release
 
 WORKDIR myApp
 EXPOSE 8100 35729
