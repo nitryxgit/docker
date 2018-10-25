@@ -7,7 +7,9 @@ ENV DEBIAN_FRONTEND=noninteractive \
     NPM_VERSION=5.6.0 \
     IONIC_VERSION=3.19.1 \
     CORDOVA_VERSION=8.0.0 \
-    GRADLE_VERSION=4.5.1
+    GRADLE_VERSION=4.5.1 \
+    GIT_EMAIL="you@example.com" \
+    GIT_USERNAME="your name"
 
 # Install basics
 RUN apt-get update &&  \
@@ -19,8 +21,8 @@ RUN apt-get update &&  \
     npm install -g cordova@"$CORDOVA_VERSION" ionic@"$IONIC_VERSION" && \
     npm cache clear --force && \
     gem install sass && \
-    git config --global user.email "you@example.com" && \
-    git config --global user.name "Your Name" && \
+    git config --global user.email "$GIT_EMAIL" && \
+    git config --global user.name "$GIT_USERNAME" && \
     ionic start myApp sidemenu --no-interactive
 #ANDROID
 #JAVA
